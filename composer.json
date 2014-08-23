@@ -1,34 +1,32 @@
 {
     "name": "laravelio/laravelio",
-    "description": "Laravel.io",
+    "description": "The source code for the Laravel.IO community portal.",
     "license": "MIT",
     "require": {
         "laravel/framework": "4.1.*",
         "artdarek/oauth-4-laravel": "1.0.*",
-        "barryvdh/laravel-debugbar": "~1.6",
-        "mccool/laravel-auto-presenter": "~1.1",
-        "mccool/database-backup": "~1.0",
-        "michelf/php-markdown": "1.4.*@dev",
-        "nickcernis/html-to-markdown": "~2.1",
+        "barryvdh/laravel-debugbar": "1.6.*",
+        "mccool/laravel-auto-presenter": "1.1.*",
+        "mccool/database-backup": "1.0.*",
+        "michelf/php-markdown": "1.4.*",
+        "nickcernis/html-to-markdown": "2.1.*",
         "misd/linkify": "1.1.*",
         "hashids/hashids": "0.3.*@dev"
     },
     "require-dev": {
-        "mockery/mockery": "~0.9",
-        "raveren/kint": "~0.9",
-        "codeception/codeception": "~2.0",
-        "codeception/aspect-mock": "0.5.*@beta"
+        "phpunit/phpunit": "4.2.*",
+        "mockery/mockery": "0.9.*"
     },
     "autoload": {
         "classmap": [
             "app/commands",
             "app/controllers",
             "app/database/migrations",
-            "app/database/seeds",
-            "tests/unit/UnitTestCase.php"
+            "app/database/seeds"
         ],
         "psr-4": {
-            "Lio\\": "src/"
+            "Lio\\": "src/",
+            "Lio\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -36,10 +34,8 @@
             "php artisan clear-compiled",
             "php artisan optimize"
         ],
-        "pre-update-cmd": [
-
-        ],
         "post-update-cmd": [
+            "php artisan clear-compiled",
             "php artisan optimize"
         ],
         "post-create-project-cmd": [
@@ -48,5 +44,6 @@
     },
     "config": {
         "preferred-install": "dist"
-    }
+    },
+    "minimum-stability": "stable"
 }
